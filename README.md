@@ -18,9 +18,9 @@ $ git clone https://github.com/jagaswethreddy/CustomerRewardsService.git
 
 ## Customer Rewards Controller
 ### HttpGet CustomerRewrds
-- this end point will provide all the rewards for all the customers. please find sample response below
+- This end point will provide all the rewards for all the customers. please find sample response below
 
-'''json
+```json
 [
   {
     "customerID": "4",
@@ -37,7 +37,74 @@ $ git clone https://github.com/jagaswethreddy/CustomerRewardsService.git
     "totalRewards": 140
   }
 ]
-'''
+```
+
+### HttpGet CustomerRewrds by Id
+
+- This enpoint will respond with rewrds for individual cutomer based on curomer Id, required parameter is customer Id
+
+```json
+{
+  "customerID": "2",
+  "firstMonthRewards": 113,
+  "secondMonthRewards": 0,
+  "thirdMonthRewards": 0,
+  "totalRewards": 113
+}
+```
+
+## Transactions Controller
+
+- This controller is responsible for fetching all transaction records, transactions based on customer id , and posting new transactions towards customer based on customer Id
+
+### HttpGet Transactions
+
+- This endpoint provide all the transactions recorded. Sample repsonse shown as below
+
+```json
+[  
+ {
+    "customerID": "5",
+    "transactions": [
+      {
+        "transactionAmount": 145,
+        "transactionDate": "2022-12-31T00:00:00"
+      }
+    ]
+  }
+]
+```
+
+### HttpGet Transactions by id
+
+- This endpoint provide the transactions for individual customer based on customer Id. Sample repsonse shown as below
+
+```json
+[  
+ {
+    "customerID": "5",
+    "transactions": [
+      {
+        "transactionAmount": 145,
+        "transactionDate": "2022-12-31T00:00:00"
+      }
+    ]
+  }
+]
+```
+
+### HttpPost Transactions by id
+
+- This endpoint is to post transactions on cusotmer records based on customer Id. Input parameters required are Customer Id and Transaction 
+
+#### Sample transaction 
+```json
+{
+  "transactionAmount": 120,
+  "transactionDate": "2023-01-11T03:35:51.673Z"
+}
+```
+
 
 
 
