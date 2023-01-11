@@ -36,10 +36,10 @@ namespace CustomerRewardsService.Controllers
             {
                 var table = _MockDataSet.transactionTable;
                 var rewards = new List<Rewards>();
-                foreach (var x in table)
+                foreach (var transactions in table)
                 {
-                    Rewards reward = _rewardCalculationsInterface.CalculateTotalRewards(x.Value);
-                    reward.CustomerID = x.Key;
+                    Rewards reward = _rewardCalculationsInterface.CalculateTotalRewards(transactions.Value);
+                    reward.CustomerID = transactions.Key;
                     rewards.Add(reward);
                 }
                 return Ok(rewards);
